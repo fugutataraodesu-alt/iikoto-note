@@ -58,7 +58,7 @@ button.rec.t{background:var(--td)}
 </head>
 <body>
 <header>
-<p id="tg">自己肯定感トレーニング</p>
+<p>自己肯定感トレーニング</p>
 <h1>今日のいいこと帳</h1>
 <small id="hd"></small>
 </header>
@@ -70,7 +70,7 @@ button.rec.t{background:var(--td)}
 </div>
 <div class="card t">
 <b>🌱 気づき・次にやってみたいこと <span style="font-size:11px;font-weight:400;color:var(--th)">（任意）</span></b>
-<textarea id="in" placeholder="次回はもっと○○したい…など" rows="1"></textarea>
+<textarea id="in2" placeholder="次回はもっと○○したい…など" rows="1"></textarea>
 <button class="rec t" id="bn">記録する</button>
 </div>
 <div class="tabs">
@@ -93,7 +93,7 @@ button.rec.t{background:var(--td)}
 </div>
 </div>
 <div id="va" style="display:none">
-<div id="la" class="list"></div>
+<div id="la2" class="list"></div>
 <div id="ea" class="empty">📖<br>まだ記録がありません。</div>
 <div id="ca" class="cs" style="display:none">
 <p><strong style="color:var(--pd)">全記録をClaudeに分析依頼：</strong><br>全データをコピーして貼り付けてください。</p>
@@ -104,21 +104,22 @@ button.rec.t{background:var(--td)}
 <script>
 var SK="iikoto_v2";
 function tk(){return new Date().toISOString().slice(0,10);}
+function fdt(k){var p=k.split("-");return p[0]+"."+p[1]+"."+p[2];}
 function fd(k){var p=k.split("-");var dt=new Date(+p[0],+p[1]-1,+p[2]);var days=["日","月","火","水","木","金","土"];return p[0]+"年"+p[1]+"月"+p[2]+"日（"+days[dt.getDay()]+"）";}
 function ts(){return new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"});}
 function eh(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 function la(){try{return JSON.parse(localStorage.getItem(SK))||{};}catch(e){return{};}}
 function sa(d){localStorage.setItem(SK,JSON.stringify(d));}
 function ct2(all){var t=0;var ks=Object.keys(all);for(var i=0;i<ks.length;i++)t+=all[ks[i]].length;return t;}
-function ae(type,text){var all=la();var k=tk();if(!all[k])all[k]=[];all[k].push({type:type,text:text,time:ts()});sa(all);render();}
+function ae(type,text){var all=la();var k=tk();if(!all[k])all[k]=[];all[k].push({type:type,text:text,time:ts(),date:fdt(k)});sa(all);render();}
 function de(dk,idx){var all=la();if(all[dk]){all[dk].splice(idx,1);if(all[dk].length===0)delete all[dk];}sa(all);render();}
-function be(e,dk,idx){var isN=e.type==="next";var div=document.createElement("div");div.className="item "+(isN?"n":"g");div.innerHTML="<div class=\"dot\"></div><div class=\"ib\"><span class=\"tag\">"+(isN?"🌱 気づき・次にやりたいこと":"🌸 よかったこと")+"</span><div class=\"it\">"+eh(e.text)+"</div><div class=\"im\">"+e.time+"</div></div><button class=\"del\" aria-label=\"削除\">x</button>";(function(d,i){div.querySelector(".del").addEventListener("click",function(){de(d,i);});})(dk,idx);return div;}
-function render(){var all=la();var today=tk();var te=all[today]||[];var tot=ct2(all);var days=Object.keys(all).length;document.getElementById("hd").textContent=fd(today);var sb=document.getElementById("sb");if(tot>0){sb.style.display="flex";document.getElementById("s0").textContent=te.length;document.getElementById("s1").textContent=tot;document.getElementById("s2").textContent=days;}else{sb.style.display="none";}var lt=document.getElementById("lt");var et=document.getElementById("et");var ct3=document.getElementById("ct");lt.innerHTML="";if(te.length===0){et.style.display="block";ct3.style.display="none";}else{et.style.display="none";ct3.style.display=tot>=3?"block":"none";var rev=te.slice().reverse();for(var i=0;i<rev.length;i++)lt.appendChild(be(rev[i],today,te.length-1-i));}var la2=document.getElementById("la");var ea=document.getElementById("ea");var ca=document.getElementById("ca");la2.innerHTML="";var ak=Object.keys(all).sort().reverse();if(ak.length===0){ea.style.display="block";ca.style.display="none";}else{ea.style.display="none";ca.style.display=tot>=5?"block":"none";for(var j=0;j<ak.length;j++){var dk=ak[j];var g=document.createElement("div");g.className="dg";g.innerHTML="<div class=\"dl\">"+fd(dk)+"</div>";var ents=all[dk];var rE=ents.slice().reverse();for(var m=0;m<rE.length;m++)g.appendChild(be(rE[m],dk,ents.length-1-m));la2.appendChild(g);}}}
+function be(e,dk,idx){var isN=e.type==="next";var div=document.createElement("div");div.className="item "+(isN?"n":"g");var dateStr=e.date||fdt(dk);div.innerHTML="<div class=\"dot\"></div><div class=\"ib\"><span class=\"tag\">"+(isN?"🌱 気づき・次にやりたいこと":"🌸 よかったこと")+"</span><div class=\"it\">"+eh(e.text)+"</div><div class=\"im\">"+dateStr+" "+e.time+"</div></div><button class=\"del\" aria-label=\"削除\">x</button>";(function(d,i){div.querySelector(".del").addEventListener("click",function(){de(d,i);});})(dk,idx);return div;}
+function render(){var all=la();var today=tk();var te=all[today]||[];var tot=ct2(all);var days=Object.keys(all).length;document.getElementById("hd").textContent=fd(today);var sb=document.getElementById("sb");if(tot>0){sb.style.display="flex";document.getElementById("s0").textContent=te.length;document.getElementById("s1").textContent=tot;document.getElementById("s2").textContent=days;}else{sb.style.display="none";}var lt=document.getElementById("lt");var et=document.getElementById("et");var ct3=document.getElementById("ct");lt.innerHTML="";if(te.length===0){et.style.display="block";ct3.style.display="none";}else{et.style.display="none";ct3.style.display=tot>=3?"block":"none";var rev=te.slice().reverse();for(var i=0;i<rev.length;i++)lt.appendChild(be(rev[i],today,te.length-1-i));}var la2=document.getElementById("la2");var ea=document.getElementById("ea");var ca=document.getElementById("ca");la2.innerHTML="";var ak=Object.keys(all).sort().reverse();if(ak.length===0){ea.style.display="block";ca.style.display="none";}else{ea.style.display="none";ca.style.display=tot>=5?"block":"none";for(var j=0;j<ak.length;j++){var dk=ak[j];var g=document.createElement("div");g.className="dg";g.innerHTML="<div class=\"dl\">"+fdt(dk)+" "+fd(dk)+"</div>";var ents=all[dk];var rE=ents.slice().reverse();for(var m=0;m<rE.length;m++)g.appendChild(be(rE[m],dk,ents.length-1-m));la2.appendChild(g);}}}
 function sw(v){document.getElementById("tt").className="tab"+(v===0?" on":"");document.getElementById("ta").className="tab"+(v===1?" on":"");document.getElementById("vt").style.display=v===0?"block":"none";document.getElementById("va").style.display=v===1?"block":"none";}
-function cp(all){var d=la();var today=tk();var txt="【いいこと帳 Claudeへの分析依頼】\n\n記録を読んで、私の傾向・強み・どんなことが私を幸せにするか分析してください。\n\n---\n\n";var keys=all===1?Object.keys(d).sort():(d[today]?[today]:[]);if(keys.length===0){txt+="（記録なし）\n";}else{for(var i=0;i<keys.length;i++){var dk=keys[i];txt+="■ "+fd(dk)+"\n";var gs=[],ns=[];for(var j=0;j<d[dk].length;j++){if(d[dk][j].type==="next")ns.push(d[dk][j]);else gs.push(d[dk][j]);}if(gs.length>0){txt+="【よかったこと】\n";for(var a=0;a<gs.length;a++)txt+=(a+1)+". "+gs[a].text+"\n";}if(ns.length>0){txt+="【気づき・次にやりたいこと】\n";for(var b=0;b<ns.length;b++)txt+=(b+1)+". "+ns[b].text+"\n";}txt+="\n";}}txt+="---\n集計："+Object.keys(d).length+"日分 / 累計"+ct2(d)+"件\n";navigator.clipboard.writeText(txt).then(function(){var bid=all===1?"cb2":"cb";var btn=document.getElementById(bid);btn.textContent="✓ コピーしました！";btn.classList.add("ok");setTimeout(function(){btn.textContent="📋 "+(all===1?"全データをコピー":"Claudeに分析データをコピー");btn.classList.remove("ok");},3000);}).catch(function(){alert("コピーに失敗しました。");});}
+function cp(all){var d=la();var today=tk();var txt="【いいこと帳 Claudeへの分析依頼】\n\n記録を読んで、私の傾向・強み・どんなことが私を幸せにするか分析してください。\n\n---\n\n";var keys=all===1?Object.keys(d).sort():(d[today]?[today]:[]);if(keys.length===0){txt+="（記録なし）\n";}else{for(var i=0;i<keys.length;i++){var dk=keys[i];txt+="■ "+fdt(dk)+" "+fd(dk)+"\n";var gs=[],ns=[];for(var j=0;j<d[dk].length;j++){if(d[dk][j].type==="next")ns.push(d[dk][j]);else gs.push(d[dk][j]);}if(gs.length>0){txt+="【よかったこと】\n";for(var a=0;a<gs.length;a++)txt+=(a+1)+". "+gs[a].text+"\n";}if(ns.length>0){txt+="【気づき・次にやりたいこと】\n";for(var b=0;b<ns.length;b++)txt+=(b+1)+". "+ns[b].text+"\n";}txt+="\n";}}txt+="---\n集計："+Object.keys(d).length+"日分 / 累計"+ct2(d)+"件\n";navigator.clipboard.writeText(txt).then(function(){var bid=all===1?"cb2":"cb";var btn=document.getElementById(bid);btn.textContent="✓ コピーしました！";btn.classList.add("ok");setTimeout(function(){btn.textContent="📋 "+(all===1?"全データをコピー":"Claudeに分析データをコピー");btn.classList.remove("ok");},3000);}).catch(function(){alert("コピーに失敗しました。");});}
 function si(iid,bid,type){var inp=document.getElementById(iid);document.getElementById(bid).addEventListener("click",function(){var t=inp.value.trim();if(!t)return;ae(type,t);inp.value="";inp.style.height="auto";});inp.addEventListener("input",function(){this.style.height="auto";this.style.height=Math.min(this.scrollHeight,120)+"px";});}
 si("ig","bg","good");
-si("in","bn","next");
+si("in2","bn","next");
 render();
 </script>
 </body>
