@@ -10,7 +10,7 @@
 body{background:var(--cream);color:var(--text-main);font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh}
 header{background:var(--warm-white);border-bottom:1px solid var(--border-pink);padding:1.25rem 1.5rem 1rem;text-align:center;position:sticky;top:0;z-index:10}
 header .tagline{font-size:11px;letter-spacing:.12em;color:var(--pink-deep);margin-bottom:4px}
-header h1{font-size:20px;font-weight:700;color:var(--text-main);letter-spacing:.05em}
+header h1{font-size:20px;font-weight:700;color:var(--text-main)}
 header .date-today{font-size:12px;color:var(--text-sub);margin-top:4px}
 main{max-width:600px;margin:0 auto;padding:1.5rem 1rem 6rem}
 .input-card{border-radius:18px;padding:1.1rem 1.25rem;margin-bottom:1rem;box-shadow:var(--shadow)}
@@ -19,28 +19,23 @@ main{max-width:600px;margin:0 auto;padding:1.5rem 1rem 6rem}
 .input-card label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;margin-bottom:8px}
 .input-card.pink label{color:var(--pink-deep)}
 .input-card.teal label{color:var(--teal-deep)}
-.input-card .sublabel{font-size:11px;font-weight:400;color:var(--text-hint);margin-left:2px}
+.sublabel{font-size:11px;font-weight:400;color:var(--text-hint);margin-left:2px}
 .input-row textarea{width:100%;border:none;border-radius:10px;padding:10px 12px;font-family:inherit;font-size:15px;color:var(--text-main);line-height:1.6;resize:none;min-height:46px;max-height:120px;outline:none;transition:background .15s}
 .input-card.pink .input-row textarea{background:var(--cream)}
 .input-card.pink .input-row textarea:focus{background:#FFF5F8}
 .input-card.teal .input-row textarea{background:#F0FAFA}
 .input-card.teal .input-row textarea:focus{background:#E6F6F2}
 .input-row textarea::placeholder{color:var(--text-hint)}
-.submit-btn{width:100%;margin-top:10px;padding:12px;border-radius:10px;border:none;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.05em;transition:background .15s,transform .1s;color:#fff}
+.submit-btn{width:100%;margin-top:10px;padding:12px;border-radius:10px;border:none;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;color:#fff;transition:background .15s}
 .submit-btn.pink{background:var(--pink-deep)}
-.submit-btn.pink:hover{background:#c0446e}
 .submit-btn.teal{background:var(--teal-deep)}
-.submit-btn.teal:hover{background:#228378}
-.submit-btn:active{transform:scale(.98)}
 .tabs{display:flex;gap:6px;margin-bottom:1rem}
 .tab{flex:1;padding:8px 0;border:1px solid var(--border-pink);border-radius:10px;background:transparent;font-family:inherit;font-size:13px;color:var(--text-sub);cursor:pointer;transition:all .15s;font-weight:500}
 .tab.active{background:var(--pink-deep);border-color:var(--pink-deep);color:#fff}
-.tab:hover:not(.active){background:var(--pink-light)}
 .entries{display:flex;flex-direction:column;gap:8px}
-.entry{background:var(--warm-white);border-radius:14px;padding:.85rem 1rem;display:flex;align-items:flex-start;gap:10px;animation:slideIn .2s ease}
+.entry{background:var(--warm-white);border-radius:14px;padding:.85rem 1rem;display:flex;align-items:flex-start;gap:10px}
 .entry.type-good{border:1px solid var(--border-pink)}
 .entry.type-next{border:1px solid var(--border-teal)}
-@keyframes slideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .entry-dot{width:8px;height:8px;border-radius:50%;margin-top:7px;flex-shrink:0}
 .entry.type-good .entry-dot{background:var(--pink-mid)}
 .entry.type-next .entry-dot{background:var(--teal-mid)}
@@ -50,37 +45,22 @@ main{max-width:600px;margin:0 auto;padding:1.5rem 1rem 6rem}
 .entry.type-next .entry-tag{background:var(--teal-light);color:var(--teal-deep)}
 .entry-text{font-size:15px;color:var(--text-main);line-height:1.65}
 .entry-meta{font-size:11px;color:var(--text-hint);margin-top:4px}
-.entry-del{background:none;border:none;cursor:pointer;color:var(--text-hint);font-size:16px;padding:0 2px;opacity:0;transition:opacity .15s,color .15s;line-height:1}
-.entry:hover .entry-del{opacity:1}
-.entry-del:hover{color:#E24B4A}
+.entry-del{background:none;border:none;cursor:pointer;color:var(--text-hint);font-size:18px;padding:4px 6px;line-height:1}
 .empty{text-align:center;padding:2.5rem 1rem;color:var(--text-hint);font-size:14px;line-height:2}
 .empty-icon{font-size:36px;margin-bottom:8px}
 .stats-bar{background:var(--amber-light);border:1px solid rgba(239,159,39,.2);border-radius:12px;padding:.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:12px}
 .stat{text-align:center;flex:1}
 .stat-num{font-size:20px;font-weight:700;color:var(--amber);line-height:1}
-.stat-label{font-size:10px;color:var(--text-sub);margin-top:2px;letter-spacing:.05em}
+.stat-label{font-size:10px;color:var(--text-sub);margin-top:2px}
 .stats-divider{width:1px;height:32px;background:rgba(239,159,39,.25)}
 .copy-section{margin-top:1.5rem;background:var(--warm-white);border:1px solid var(--border-pink);border-radius:14px;padding:1rem 1.25rem}
 .copy-section p{font-size:12px;color:var(--text-sub);margin-bottom:10px;line-height:1.6}
 .copy-section p strong{color:var(--pink-deep)}
-.copy-btn{width:100%;padding:11px;border-radius:10px;border:1.5px solid var(--pink-deep);background:transparent;color:var(--pink-deep);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.05em;transition:all .15s}
-.copy-btn:hover{background:var(--pink-deep);color:#fff}
+.copy-btn{width:100%;padding:11px;border-radius:10px;border:1.5px solid var(--pink-deep);background:transparent;color:var(--pink-deep);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s}
 .copy-btn.copied{background:#3B6D11;border-color:#3B6D11;color:#fff}
 .day-group{margin-bottom:1.25rem}
 .day-label{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--pink-deep);margin-bottom:6px;padding-left:4px}
-@media(max-width:600px){
-header{padding:1rem 1rem .75rem}
-header h1{font-size:18px}
-main{padding:1rem .75rem calc(5rem + env(safe-area-inset-bottom))}
-.input-card{padding:1rem;border-radius:14px}
-.input-row textarea{font-size:16px}
-.submit-btn{padding:14px;font-size:15px;min-height:48px}
-.tab{padding:10px 0;font-size:14px}
-.entry{padding:.9rem .85rem}
-.entry-del{opacity:1;padding:4px 6px;font-size:18px;min-width:32px;min-height:32px;display:flex;align-items:center;justify-content:center}
-.copy-btn{padding:14px;font-size:15px;min-height:48px}
-.stat-num{font-size:22px}
-}
+@media(max-width:600px){header{padding:1rem 1rem .75rem}header h1{font-size:18px}main{padding:1rem .75rem calc(5rem + env(safe-area-inset-bottom))}.input-card{padding:1rem;border-radius:14px}.input-row textarea{font-size:16px}.submit-btn{padding:14px;font-size:15px;min-height:48px}.tab{padding:10px 0;font-size:14px}.copy-btn{padding:14px;font-size:15px;min-height:48px}.stat-num{font-size:22px}}
 </style>
 </head>
 <body>
@@ -101,8 +81,8 @@ main{padding:1rem .75rem calc(5rem + env(safe-area-inset-bottom))}
 <button class="submit-btn teal" id="btn-next">記録する</button>
 </div>
 <div class="tabs">
-<button class="tab active" data-tab="today" onclick="switchTab('today')">今日</button>
-<button class="tab" data-tab="all" onclick="switchTab('all')">全履歴</button>
+<button class="tab active" id="tab-btn-today" onclick="switchTab('today')">今日</button>
+<button class="tab" id="tab-btn-all" onclick="switchTab('all')">全履歴</button>
 </div>
 <div id="tab-today">
 <div id="stats-bar" class="stats-bar" style="display:none">
@@ -112,55 +92,85 @@ main{padding:1rem .75rem calc(5rem + env(safe-area-inset-bottom))}
 <div class="stats-divider"></div>
 <div class="stat"><div class="stat-num" id="stat-days">0</div><div class="stat-label">継続日数</div></div>
 </div>
-<div class="entries" id="entries-today"></div>
-<div class="empty" id="empty-today"><div class="empty-icon">🌸</div>今日のいいことを書いてみよう。<br>寝る前に1つでも思い出せたら十分。</div>
-<div class="copy-section" id="copy-section" style="display:none">
+<div id="entries-today" class="entries"></div>
+<div id="empty-today" class="empty"><div class="empty-icon">🌸</div>今日のいいことを書いてみよう。<br>寝る前に1つでも思い出せたら十分。</div>
+<div id="copy-section" class="copy-section" style="display:none">
 <p><strong>Claudeに分析を依頼するとき：</strong><br>下のボタンでコピーして貼り付けてください。</p>
 <button class="copy-btn" id="copy-btn" onclick="copyForClaude()">📋 Claudeに分析データをコピー</button>
 </div>
 </div>
 <div id="tab-all" style="display:none">
-<div class="entries" id="entries-all"></div>
-<div class="empty" id="empty-all"><div class="empty-icon">📖</div>まだ記録がありません。<br>毎日少しずつ積み上げていこう。</div>
-<div class="copy-section" id="copy-section-all" style="display:none">
+<div id="entries-all" class="entries"></div>
+<div id="empty-all" class="empty"><div class="empty-icon">📖</div>まだ記録がありません。<br>毎日少しずつ積み上げていこう。</div>
+<div id="copy-section-all" class="copy-section" style="display:none">
 <p><strong>全記録をClaudeに分析依頼：</strong><br>全データをコピーして貼り付けてください。</p>
 <button class="copy-btn" id="copy-btn-all" onclick="copyForClaude('all')">📋 全データをコピー</button>
 </div>
 </div>
 </main>
 <script>
-const SK='iikoto_v2';
-function tk(){return new Date().toISOString().slice(0,10)}
-function fd(k){const[y,m,d]=k.split('-');const dt=new Date(+y,+m-1,+d);const days=['日','月','火','水','木','金','土'];return y+'年'+m+'月'+d+'日（'+days[dt.getDay()]+'）'}
-function ts(){return new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})}
-function eh(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function la(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
-function sa(d){localStorage.setItem(SK,JSON.stringify(d))}
-function ae(type,text){const all=la();const k=tk();if(!all[k])all[k]=[];all[k].push({type,text,time:ts(),ts:Date.now()});sa(all);render()}
-function de(dk,idx){const all=la();if(all[dk]){all[dk].splice(idx,1);if(all[dk].length===0)delete all[dk]}sa(all);render()}
-function cs2(all){const tc=(all[tk()]||[]).length;let tot=0;Object.values(all).forEach(a=>tot+=a.length);return{todayCount:tc,total:tot,days:Object.keys(all).length}}
-function be(e,dk,idx){const isN=e.type==='next';const div=document.createElement('div');div.className='entry '+(isN?'type-next':'type-good');div.innerHTML='<div class="entry-dot"></div><div class="entry-body"><span class="entry-tag">'+(isN?'🌱 気づき・次にやりたいこと':'🌸 よかったこと')+'</span><div class="entry-text">'+eh(e.text)+'</div><div class="entry-meta">'+e.time+'</div></div><button class="entry-del" aria-label="削除">×</button>';div.querySelector('.entry-del').addEventListener('click',()=>de(dk,idx));return div}
-function render(){const all=la();const today=tk();const te=all[today]||[];const st=cs2(all);const tot=st.total;document.getElementById('date-today').textContent=fd(today);const sb=document.getElementById('stats-bar');if(tot>0){sb.style.display='flex';document.getElementById('stat-today').textContent=st.todayCount;document.getElementById('stat-total').textContent=st.total;document.getElementById('stat-days').textContent=st.days}else{sb.style.display='none'}const c=document.getElementById('entries-today');const em=document.getElementById('empty-today');const cop=document.getElementById('copy-section');c.innerHTML='';if(te.length===0){em.style.display='block';cop.style.display='none'}else{em.style.display='none';cop.style.display=tot>=3?'block':'none';te.slice().reverse().forEach((e,ri)=>{c.appendChild(be(e,today,te.length-1-ri))})}const ac=document.getElementById('entries-all');const ea=document.getElementById('empty-all');const ca=document.getElementById('copy-section-all');ac.innerHTML='';const ak=Object.keys(all).sort().reverse();if(ak.length===0){ea.style.display='block';ca.style.display='none'}else{ea.style.display='none';ca.style.display=tot>=5?'block':'none';ak.forEach(dk=>{const g=document.createElement('div');g.className='day-group';g.innerHTML='<div class="day-label">'+fd(dk)+'</div>';all[dk].slice().reverse().forEach((e,ri)=>{g.appendChild(be(e,dk,all[dk].length-1-ri))});ac.appendChild(g)})}}
-function switchTab(t){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===t));document.getElementById('tab-today').style.display=t==='today'?'block':'none';document.getElementById('tab-all').style.display=t==='all'?'block':'none'}
-function copyForClaude(mode){const all=la();const today=tk();let text='【いいこと帳 Claudeへの分析依頼】
+var SK='iikoto_v2';
+function tk(){return new Date().toISOString().slice(0,10);}
+function fd(k){var p=k.split('-');var dt=new Date(+p[0],+p[1]-1,+p[2]);var days=['日','月','火','水','木','金','土'];return p[0]+'年'+p[1]+'月'+p[2]+'日（'+days[dt.getDay()]+'）';}
+function ts(){return new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});}
+function eh(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function la(){try{return JSON.parse(localStorage.getItem(SK))||{};}catch(e){return{};}}
+function sa(d){localStorage.setItem(SK,JSON.stringify(d));}
+function countAll(all){var t=0;var ks=Object.keys(all);for(var i=0;i<ks.length;i++)t+=all[ks[i]].length;return t;}
+function ae(type,text){var all=la();var k=tk();if(!all[k])all[k]=[];all[k].push({type:type,text:text,time:ts(),ts:Date.now()});sa(all);render();}
+function de(dk,idx){var all=la();if(all[dk]){all[dk].splice(idx,1);if(all[dk].length===0)delete all[dk];}sa(all);render();}
+function buildEl(e,dk,idx){
+  var isN=e.type==='next';
+  var div=document.createElement('div');
+  div.className='entry '+(isN?'type-next':'type-good');
+  div.innerHTML='<div class="entry-dot"></div><div class="entry-body"><span class="entry-tag">'+(isN?'🌱 気づき・次にやりたいこと':'🌸 よかったこと')+'</span><div class="entry-text">'+eh(e.text)+'</div><div class="entry-meta">'+e.time+'</div></div><button class="entry-del" aria-label="削除">×</button>';
+  (function(d,i){div.querySelector('.entry-del').addEventListener('click',function(){de(d,i);});})(dk,idx);
+  return div;
+}
+function render(){
+  var all=la();var today=tk();var te=all[today]||[];
+  var tot=countAll(all);var days=Object.keys(all).length;
+  document.getElementById('date-today').textContent=fd(today);
+  var sb=document.getElementById('stats-bar');
+  if(tot>0){sb.style.display='flex';document.getElementById('stat-today').textContent=te.length;document.getElementById('stat-total').textContent=tot;document.getElementById('stat-days').textContent=days;}
+  else{sb.style.display='none';}
+  var c=document.getElementById('entries-today');var em=document.getElementById('empty-today');var cs=document.getElementById('copy-section');
+  c.innerHTML='';
+  if(te.length===0){em.style.display='block';cs.style.display='none';}
+  else{em.style.display='none';cs.style.display=tot>=3?'block':'none';var rev=te.slice().reverse();for(var i=0;i<rev.length;i++)c.appendChild(buildEl(rev[i],today,te.length-1-i));}
+  var ac=document.getElementById('entries-all');var ea=document.getElementById('empty-all');var ca=document.getElementById('copy-section-all');
+  ac.innerHTML='';var ak=Object.keys(all).sort().reverse();
+  if(ak.length===0){ea.style.display='block';ca.style.display='none';}
+  else{ea.style.display='none';ca.style.display=tot>=5?'block':'none';for(var j=0;j<ak.length;j++){var dk=ak[j];var g=document.createElement('div');g.className='day-group';g.innerHTML='<div class="day-label">'+fd(dk)+'</div>';var ents=all[dk];var revE=ents.slice().reverse();for(var m=0;m<revE.length;m++)g.appendChild(buildEl(revE[m],dk,ents.length-1-m));ac.appendChild(g);}}
+}
+function switchTab(t){document.getElementById('tab-btn-today').classList.toggle('active',t==='today');document.getElementById('tab-btn-all').classList.toggle('active',t==='all');document.getElementById('tab-today').style.display=t==='today'?'block':'none';document.getElementById('tab-all').style.display=t==='all'?'block':'none';}
+function copyForClaude(mode){
+  var all=la();var today=tk();
+  var text='【いいこと帳 Claudeへの分析依頼】
 
 記録を読んで、私の傾向・強み・どんなことが私を幸せにするか分析してください。
 
 ---
 
-';const keys=mode==='all'?Object.keys(all).sort():(all[today]?[today]:[]);if(keys.length===0){text+='（記録なし）
-'}else{keys.forEach(dk=>{text+='■ '+fd(dk)+'
-';const g=all[dk].filter(e=>e.type!=='next');const n=all[dk].filter(e=>e.type==='next');if(g.length>0){text+='【よかったこと】
-';g.forEach((e,i)=>{text+=(i+1)+'. '+e.text+'
-'})}if(n.length>0){text+='【気づき・次にやりたいこと】
-';n.forEach((e,i)=>{text+=(i+1)+'. '+e.text+'
-'})}text+='
-'})}text+='---
-集計：'+Object.keys(all).length+'日分 / 累計'+Object.values(all).reduce((s,a)=>s+a.length,0)+'件
-';navigator.clipboard.writeText(text).then(()=>{const b=document.getElementById(mode==='all'?'copy-btn-all':'copy-btn');b.textContent='✓ コピーしました！';b.classList.add('copied');setTimeout(()=>{b.textContent='📋 '+(mode==='all'?'全データをコピー':'Claudeに分析データをコピー');b.classList.remove('copied')},3000)}).catch(()=>alert('コピーに失敗しました。'))}
-function si(iid,bid,type){const inp=document.getElementById(iid);document.getElementById(bid).addEventListener('click',()=>{const t=inp.value.trim();if(!t)return;ae(type,t);inp.value='';inp.style.height='auto'});inp.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px'})}
-si('input-good','btn-good','good');
-si('input-next','btn-next','next');
+';
+  var keys=mode==='all'?Object.keys(all).sort():(all[today]?[today]:[]);
+  if(keys.length===0){text+='（記録なし）
+';}
+  else{for(var i=0;i<keys.length;i++){var dk=keys[i];text+='■ '+fd(dk)+'
+';var gs=[],ns=[];for(var j=0;j<all[dk].length;j++){if(all[dk][j].type==='next')ns.push(all[dk][j]);else gs.push(all[dk][j]);}if(gs.length>0){text+='【よかったこと】
+';for(var a=0;a<gs.length;a++)text+=(a+1)+'. '+gs[a].text+'
+';}if(ns.length>0){text+='【気づき・次にやりたいこと】
+';for(var b=0;b<ns.length;b++)text+=(b+1)+'. '+ns[b].text+'
+';}text+='
+';}}
+  text+='---
+集計：'+Object.keys(all).length+'日分 / 累計'+countAll(all)+'件
+';
+  navigator.clipboard.writeText(text).then(function(){var bid=mode==='all'?'copy-btn-all':'copy-btn';var btn=document.getElementById(bid);btn.textContent='✓ コピーしました！';btn.classList.add('copied');setTimeout(function(){btn.textContent='📋 '+(mode==='all'?'全データをコピー':'Claudeに分析データをコピー');btn.classList.remove('copied');},3000);}).catch(function(){alert('コピーに失敗しました。');});
+}
+function setupInput(iid,bid,type){var inp=document.getElementById(iid);document.getElementById(bid).addEventListener('click',function(){var t=inp.value.trim();if(!t)return;ae(type,t);inp.value='';inp.style.height='auto';});inp.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px';});}
+setupInput('input-good','btn-good','good');
+setupInput('input-next','btn-next','next');
 render();
 </script>
 </body>
