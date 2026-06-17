@@ -127,7 +127,16 @@ async function cp(all){var d=await la();var today=tk();var txt="【いいこと�
 function si(iid,bid,type){var inp=document.getElementById(iid);var btn=document.getElementById(bid);btn.addEventListener("click",async function(){var t=inp.value.trim();if(!t)return;var orig=btn.textContent;btn.textContent="保存中…";btn.disabled=true;await ae(type,t);inp.value="";inp.style.height="auto";btn.textContent=orig;btn.disabled=false;});inp.addEventListener("input",function(){this.style.height="auto";this.style.height=Math.min(this.scrollHeight,120)+"px";});}
 si("ig","bg","good");
 si("in2","bn","next");
-render();
+(async function(){
+  try{
+    var kv=await la();
+    if(Object.keys(kv).length===0){
+      var ls=localStorage.getItem("iikoto_v2");
+      if(ls){var parsed=JSON.parse(ls);if(Object.keys(parsed).length>0)await sa(parsed);}
+    }
+  }catch(e){}
+  await render();
+})();
 </script>
 </body>
 </html>
